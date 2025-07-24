@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+.env
+.venv/
+venv/
+ENV/
+env/
+.mypy_cache/
+# Ignore environment secrets
+Backend/.env
+
+# Docker
+*.log
+
+# Node / React Native
+node_modules/
+.expo/
+.expo-shared/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+package.json
+
+# macOS or Linux (optional)
+.DS_Store
+
+# VSCode (optional)
+.vscode/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Expo
+.expo/
+.expo-shared/
+
+# IDE/Editor
+.vscode/
+
+# macOS
+.DS_Store
+
+# Log files
+*.log
