@@ -9,6 +9,9 @@ from schemas import StoreResponse, StoreCard
 
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.responses import RedirectResponse
+
+
 # ✅ Automatically create tables in Supabase if they don't exist
 Base.metadata.create_all(bind=engine)
 
@@ -25,12 +28,10 @@ app.add_middleware(
 )
 
 # ✅ Root route
-@app.get("/")
-def read_root():
-    return {
-        "message": "http://127.0.0.1:8000/docs  --- test endpoints",
-        "status": "RoamWise API is running 🚀"
-    }
+
+@app.get("/", include_in_schema=False)
+def root():
+    return RedirectResponse(url="/docs")
 
 # 🏬 Stores route
 @app.get("/stores", response_model=StoreResponse)
