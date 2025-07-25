@@ -1,20 +1,17 @@
-from sqlalchemy import Column, Integer, String
-from Backend.db import Base
+from sqlalchemy import Column, String, Text, JSON, TIMESTAMP
+from sqlalchemy.dialects.postgresql import UUID
+import uuid
+from db import Base
 
 class Mall(Base):
     __tablename__ = "malls"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True, nullable=False)
-    location = Column(String, nullable=True)
-
-class MallStore(Base):
-    __tablename__ = "mallstores"
-
-    id = Column(Integer, primary_key=True, index=True)
-    Store_Name = Column(String, nullable=False)
-    Category = Column(String, nullable=False)
-    Floor_Level = Column(Integer, nullable=False)
-    Contact_Number = Column(String, nullable=True)
-    Opening_Hours = Column(String, nullable=False)
-    Closing_Hours = Column(String, nullable=False)
+    mall_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    name = Column(String, nullable=False)
+    description = Column(Text)
+    location = Column(String)  # Placeholder for Geography type
+    address = Column(Text)
+    contact_info = Column(JSON)
+    opening_hours = Column(JSON)
+    map_image_url = Column(Text)
+    created_at = Column(TIMESTAMP)

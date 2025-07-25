@@ -1,19 +1,18 @@
 from pydantic import BaseModel
-from typing import List
-
-class StoreCard(BaseModel):
-    name: str
-    category: str
-    floor_level: int
-    open_time: str
-    close_time: str
-    contact_info: str
-    recommendations: str
+from typing import Optional
+from uuid import UUID
 
 class StoreResponse(BaseModel):
-    question: str
-    stores: List[StoreCard]
+    store_id: UUID
+    mall_id: UUID
+    name: str
+    category: str
+    floor: Optional[str]
+    unit_number: Optional[str]
+    hours: Optional[dict]
+    contact: Optional[dict]
 
-    class Config:
-        from_attributes = True  # Pydantic v2 style
+    model_config = {
+        "from_attributes": True
+    }
 

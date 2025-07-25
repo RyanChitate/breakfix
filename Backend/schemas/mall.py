@@ -1,13 +1,17 @@
 from pydantic import BaseModel
+from typing import Optional
+from uuid import UUID
 
-class MallBase(BaseModel):
+class MallResponse(BaseModel):
+    mall_id: UUID
     name: str
-    location: str | None = None
+    description: Optional[str]
+    location: Optional[str]
+    address: Optional[str]
+    contact_info: Optional[dict]
+    opening_hours: Optional[dict]
+    map_image_url: Optional[str]
 
-class MallCreate(MallBase):
-    pass
-
-class MallResponse(MallBase):
-    id: int
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }

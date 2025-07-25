@@ -1,2 +1,2 @@
-from .mall import Mall, MallStore
-__all__ = ["Mall", "MallStore"]
+from .mall import Mall
+from .store import Store

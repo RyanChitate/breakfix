@@ -1,3 +1,3 @@
-from .store import StoreCard, StoreResponse
+from .store import StoreResponse
 
 __all__ = ["StoreCard", "StoreResponse"]
